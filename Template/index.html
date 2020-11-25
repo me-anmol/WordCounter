@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frequency</title>
+</head>
+<body>
+	<h1>Enter the url to be tested</h1>
+	<form action="{% url 'result'%}" method="post">
+		{% csrf_token %}
+		<input type="text" name="url" placeholder="Enter the Url">
+		<button type="submit">Result</button>
+	</form>
+</body>
+</html>

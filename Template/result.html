@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style type="css">
+        table, th, td {
+        border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>The Table of max occurances</h1>
+    <table>
+        <tr>
+          <th>Word</th>
+          <th>Count</th>
+        </tr>
+        {% for x in most_occur %}
+        <tr>
+          <td>{{ x.0 }}</td>
+          <td>{{ x.1 }}</td>
+        </tr>
+        {% endfor %}
+        
+       
+</body>
+</html>
