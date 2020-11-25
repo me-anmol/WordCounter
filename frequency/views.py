@@ -8,6 +8,8 @@ nltk.download('stopwords')
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 import re 
+from .models import word
+
 
 # Create your views here.
 def index (request):
@@ -38,5 +40,11 @@ def result(request):
     # most_common() produces k frequently encountered
     # input values and their respective counts.
     most_occur = counter.most_common(10)
-    print(most_occur)
+    if word.objects.filter(url = url).exists():
+        return render(request,'result.html',{'most_occur':most_occur})
+    for x in most_occur:
+        w = word(url =url , wordh  = x[0] , freq = x[1])
+        w.save()
+
+
     return render(request,'result.html',{'most_occur':most_occur})
